@@ -5,6 +5,7 @@ public class pingTester {
 
         int choice;
         do {
+
             Scanner scanner = new Scanner(System.in);
             DisplayMenu();
             choice = scanner.nextInt();
@@ -14,21 +15,26 @@ public class pingTester {
                     ConnectToJapan();
                     break;
                 case 2:
-                    ConnectToCanada();
+                    ConnectToCustomWeb();
+                    break;
+                case 3:
+                    CountryIPs();
                     break;
             }
 
         } while (choice != 0);
     }
 
-    public static void ConnectToCanada() {
-        PingConfiguration pingConfiguration = new PingConfiguration("www.canada.ca", 10, 1000);
+    public static void ConnectToCustomWeb() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter domain  or ip address:");
+        String customServerAddress = sc.next();
 
-        String serverAddress = pingConfiguration.getServerAddress();
+        PingConfiguration pingConfiguration = new PingConfiguration(customServerAddress, 10, 1000);
         int numberOfRequest = pingConfiguration.getRequestSendAmount();
         int timeoutMillis = pingConfiguration.getTimeoutMillis();
+        PingConfiguration.ConnectToServer(customServerAddress, numberOfRequest, timeoutMillis);
 
-        PingConfiguration.ConnectToServer(serverAddress, numberOfRequest, timeoutMillis);
     }
 
     public static void ConnectToJapan() {
@@ -40,12 +46,18 @@ public class pingTester {
 
         PingConfiguration.ConnectToServer(serverAddress, numberOfRequest, timeoutMillis);
     }
+    public static void CountryIPs() {
+        System.out.println("RUSSIA(MOSCOW) - 46.17.46.213" +
+                "\nCANADA - www.canada.ca" +
+                "\nGERMANY - www.deutschland.de" +
+                "\nUZBEKISTAN - my.gov.uzD");
+    }
 
     public static void DisplayMenu() {
         System.out.println("=========== Menu ===========");
         System.out.println("1.Test japan server latency");
-        System.out.println("2.Test canada server latency");
-        System.out.println("3.Test custom website");
+        System.out.println("2.Test custom website/ip");
+        System.out.println("3.Show country and website/IPs");
         System.out.println("0.EXIT");
         System.out.println("============================");
     }
