@@ -13,9 +13,11 @@ I live in a city where internet issues with the provider are common. Occasionall
 4. Run the code in the main class (`pingTester/src/pingTester.java`).
 
 5. You will see this mini menu. Choose one of the options, and it should run, displaying your latency.
+   
 <picture>
    <img src="https://github.com/teramotl/pingTester/blob/main/menupic.jpg?raw=true"
 </picture>
+
 ## Is That It?
 
 For now, yes. I am still actively working on it and will be adding many more features.
