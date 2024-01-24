@@ -20,6 +20,3 @@ I live in a city where internet issues with the provider are common. Occasionall
 
 For now, yes. I am still actively working on it and will be adding many more features.
 
-## Clone the Repository
-
-You can clone the repository using the following command:
