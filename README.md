@@ -14,9 +14,8 @@ I live in a city where internet issues with the provider are common. Occasionall
 
 5. You will see this mini menu. Choose one of the options, and it should run, displaying your latency.
    
-<picture>
-   <img src="https://github.com/teramotl/pingTester/blob/main/menupic.jpg?raw=true"
-</picture>
+![Menu Screenshot](https://github.com/teramotl/pingTester/blob/main/menupic.jpg?raw=true)
+
 
 ## Is That It?
 
