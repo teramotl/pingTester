@@ -1,39 +1,52 @@
-import java.io.IOException;
-import java.net.InetAddress;
+import java.util.Scanner;
 
 public class pingTester {
     public static void main(String[] args) {
-        PingConfiguration pingConfiguration = new PingConfiguration("www.evastore.jp", 100, 1000);
+
+        int choice;
+        do {
+            Scanner scanner = new Scanner(System.in);
+            DisplayMenu();
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    ConnectToJapan();
+                    break;
+                case 2:
+                    ConnectToCanada();
+                    break;
+            }
+
+        } while (choice != 0);
+    }
+
+    public static void ConnectToCanada() {
+        PingConfiguration pingConfiguration = new PingConfiguration("www.canada.ca", 10, 1000);
 
         String serverAddress = pingConfiguration.getServerAddress();
         int numberOfRequest = pingConfiguration.getRequestSendAmount();
         int timeoutMillis = pingConfiguration.getTimeoutMillis();
 
-        for(int i = 0; i < numberOfRequest; i++) {
-            //System.out.println("Connecting to server..."); TODO implement better 'connecting' feature;
-            long startTime = System.currentTimeMillis();
-            boolean isReachable = pingServer(serverAddress, timeoutMillis);
-            long endTime = System.currentTimeMillis();
-
-            if(isReachable) {
-                long latency = endTime - startTime;
-                System.out.println("Latency: " + latency + "ms");
-            } else {
-                System.out.println("Server is not reachable");
-            }
-            try {
-                Thread.sleep(timeoutMillis);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        PingConfiguration.ConnectToServer(serverAddress, numberOfRequest, timeoutMillis);
     }
-    public static boolean pingServer(String serverAddress, int timeoutMillis) {
-        try {
-            return InetAddress.getByName(serverAddress).isReachable(timeoutMillis);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
+
+    public static void ConnectToJapan() {
+        PingConfiguration pingConfiguration = new PingConfiguration("www.evastore.jp", 10, 1000);
+
+        String serverAddress = pingConfiguration.getServerAddress();
+        int numberOfRequest = pingConfiguration.getRequestSendAmount();
+        int timeoutMillis = pingConfiguration.getTimeoutMillis();
+
+        PingConfiguration.ConnectToServer(serverAddress, numberOfRequest, timeoutMillis);
+    }
+
+    public static void DisplayMenu() {
+        System.out.println("=========== Menu ===========");
+        System.out.println("1.Test japan server latency");
+        System.out.println("2.Test canada server latency");
+        System.out.println("3.Test custom website");
+        System.out.println("0.EXIT");
+        System.out.println("============================");
     }
 }
