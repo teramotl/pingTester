@@ -1,8 +1,21 @@
-1. why pingtester?
-i live in a city where ofthen have problems with internet provider, and sometims when im working or playing games it gets laggy, to know if lag on my side (my internet) or is it from other side, i needed tool to check my internet stability. this simple tool just sends requests to one of the server from menu (or you can add your own server example: www.example.com).
-2. how to use?
-clone repo, open it in any IDE that supports java, and run the code in main class (pingTester/src/pingTester.java)
-(img pingtester)
-you will see this mini menu, then choose one of the options, after it should run and show you your latency.
-3. thats it?
-for now, yes. i am still working on it, will add many more features
+# PingTester
+
+## Why PingTester?
+
+I live in a city where internet issues with the provider are common. Occasionally, when working or playing games, I experience lags. To determine whether the lag originates from my end (my internet) or the other side, I needed a tool to assess my internet stability. This simple tool sends requests to a server of your choice from the menu (or you can add your own server, for example: www.example.com).
+
+## How to Use?
+
+1. Clone the repository.
+   
+3. Open it in any IDE that supports Java.
+4. Run the code in the main class (`pingTester/src/pingTester.java`).
+
+
+5. You will see this mini menu. Choose one of the options, and it should run, displaying your latency.
+
+![Menu Screenshot](https://github.com/teramotl/pingTester/blob/main/menuIMG.jpg)
+
+## Is That It?
+
+For now, yes. I am still actively working on it and will be adding many more features.
