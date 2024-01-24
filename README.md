@@ -12,7 +12,7 @@ I live in a city where internet issues with the provider are common. Occasionall
 3. Open it in any IDE that supports Java.
 4. Run the code in the main class (`pingTester/src/pingTester.java`).
 
-5. You will see this mini menu. Choose one of the options, and it should run, displaying your latency.
+5. You will see this mini menu. you can choose first option and it will connect to jp server and display your latency. OR you can choose custom method where you can enter any website of your choice.
    
 ![Menu Screenshot](https://github.com/teramotl/pingTester/blob/main/menupic.jpg?raw=true)
 
