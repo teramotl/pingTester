@@ -1,56 +1,60 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class pingTester {
     public static void main(String[] args) {
 
-        int choice;
+        int choice = 0;
+
         do {
+            try {
+                Scanner scanner = new Scanner(System.in);
+                DisplayMenu();
+                choice = scanner.nextInt();
 
-            Scanner scanner = new Scanner(System.in);
-            DisplayMenu();
-            choice = scanner.nextInt();
+                switch (choice) {
+                    case 1:
+                        connectToJapan();
+                        break;
+                    case 2:
+                        connectToCustomWeb();
+                        break;
+                    case 3:
+                        CountryIPs();
+                        break;
+                }
 
-            switch (choice) {
-                case 1:
-                    ConnectToJapan();
-                    break;
-                case 2:
-                    ConnectToCustomWeb();
-                    break;
-                case 3:
-                    CountryIPs();
-                    break;
+            } catch (InputMismatchException e) {
+                System.out.println("please enter number to select");
+                ;
             }
 
         } while (choice != 0);
     }
 
-    public static void ConnectToCustomWeb() {
+    public static void connectToCustomWeb() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter domain  or ip address:");
         String customServerAddress = sc.next();
-
-        PingConfiguration pingConfiguration = new PingConfiguration(customServerAddress, 10, 1000);
-        int numberOfRequest = pingConfiguration.getRequestSendAmount();
-        int timeoutMillis = pingConfiguration.getTimeoutMillis();
-        PingConfiguration.ConnectToServer(customServerAddress, numberOfRequest, timeoutMillis);
-
+        connectTo(customServerAddress);
     }
 
-    public static void ConnectToJapan() {
-        PingConfiguration pingConfiguration = new PingConfiguration("www.evastore.jp", 10, 1000);
-
-        String serverAddress = pingConfiguration.getServerAddress();
-        int numberOfRequest = pingConfiguration.getRequestSendAmount();
-        int timeoutMillis = pingConfiguration.getTimeoutMillis();
-
-        PingConfiguration.ConnectToServer(serverAddress, numberOfRequest, timeoutMillis);
+    public static void connectToJapan() {
+        connectTo("www.evastore.jp");
     }
+
+    public static void connectTo(String serverAddress) {
+        PingConfiguration pingConfiguration = new PingConfiguration(serverAddress, 10, 1000);
+        int numberOfRequests = pingConfiguration.getRequestSendAmount();
+        int timeoutMillis = pingConfiguration.getTimeoutMillis();
+        PingConfiguration.ConnectToServer(serverAddress, numberOfRequests, timeoutMillis);
+    }
+
     public static void CountryIPs() {
         System.out.println("RUSSIA(MOSCOW) - 46.17.46.213" +
                 "\nCANADA - www.canada.ca" +
                 "\nGERMANY - www.deutschland.de" +
-                "\nUZBEKISTAN - my.gov.uzD");
+                "\nUZBEKISTAN - my.gov.uz");
     }
 
     public static void DisplayMenu() {
