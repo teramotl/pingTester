@@ -26,7 +26,7 @@ public class pingTester {
 
             } catch (InputMismatchException e) {
                 System.out.println("please enter number to select");
-                ;
+
             }
 
         } while (choice != 0);
@@ -51,10 +51,11 @@ public class pingTester {
     }
 
     public static void CountryIPs() {
-        System.out.println("RUSSIA(MOSCOW) - 46.17.46.213" +
-                "\nCANADA - www.canada.ca" +
-                "\nGERMANY - www.deutschland.de" +
-                "\nUZBEKISTAN - my.gov.uz");
+        System.out.println("""
+                RUSSIA(MOSCOW) - 46.17.46.213
+                CANADA - www.canada.ca
+                GERMANY - www.deutschland.de
+                UZBEKISTAN - my.gov.uz""");
     }
 
     public static void DisplayMenu() {
