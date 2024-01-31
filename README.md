@@ -9,6 +9,7 @@ I live in a city where internet issues with the provider are common. Occasionall
 1. Clone the repository.  
    ```bash
    git clone https://github.com/teramotl/PingTester.git
+   cd PingTester
 3. Open it in any IDE that supports Java.
 4. Run the code in the main class (`PingTester/src/PingTester.java`).
 
