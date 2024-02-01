@@ -1,8 +1,13 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+//TODO improve latency println (on progress)
+
+//TODO implement multithreadconnection (on progress)
+
+
 public class PingTester {
-    private static Config pingConfiguration;
+    public static Config pingConfiguration;
 
     public static void main(String[] args) {
         pingConfiguration = new Config(); // Initialize with default values
@@ -17,7 +22,14 @@ public class PingTester {
 
                 switch (choice) {
                     case 1:
-                        connectToJapan();
+                        MultithreadingConnection connectToJapan = new MultithreadingConnection("www.evastore.com");
+                        MultithreadingConnection connectToRussia = new MultithreadingConnection("46.17.46.213");
+                        Thread thread1 = new Thread(connectToJapan);
+                        Thread thread2 = new Thread(connectToRussia);
+
+                        thread1.start();
+                        thread2.start();
+
                         break;
                     case 2:
                         connectToCustomWeb();
@@ -64,7 +76,7 @@ public class PingTester {
 
     public static void displayMenu() {
         System.out.println("=========== Menu ===========");
-        System.out.println("1. Test Japan server latency");
+        System.out.println("1. Test all servers");
         System.out.println("2. Test custom website/ip");
         System.out.println("3. Show country and website/IPs");
         System.out.println("4. Settings");
@@ -76,8 +88,7 @@ public class PingTester {
         System.out.println("++++++ Settings Menu +++++++");
         System.out.println("1. Change number of requests");
         System.out.println("2. Change connection timeout");
-        System.out.println("3. Turn on/off connection details");
-        System.out.println("4. Change to default settings");
+        System.out.println("3. Change to default settings");
         System.out.println("0. Go back");
         System.out.println("++++++++++++++++++++++++++++");
 
@@ -96,9 +107,6 @@ public class PingTester {
                 changeConnectionTimeout();
                 break;
             case 3:
-                 //TODO implement feature later
-                break;
-            case 4:
                 setToDefaultSettings();
                 break;
             default:
