@@ -10,15 +10,13 @@ I live in a city where internet issues with the provider are common. Occasionall
    ```bash
    git clone https://github.com/teramotl/PingTester.git
    cd PingTester
-3. Open it in any IDE that supports Java.
-4. Run the code in the main class (`PingTester/src/PingTester.java`).
-
-5. You will see this mini menu. you can choose first option and it will connect to jp server and display your latency. OR you can choose custom method where you can enter any website of your choice.
+3. Run exe file.
+4. Choose first option and enter any domain or ip to check your ping. (example: www.google.com)
    
 ![Menu Screenshot](https://github.com/teramotl/pingTester/blob/main/menupicFinal.jpg?raw=true)
 
 
-## Is That It?
+## That's It?
 
-For now, yes. I am still actively working on it and will be adding many more features.
+For now, yes.
 
