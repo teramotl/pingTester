@@ -21,7 +21,8 @@ public class Config {
                 totalLatency += latency;
                 minLatency = Math.min(minLatency, latency);
                 maxLatency = Math.max(maxLatency, latency);
-                System.out.println("Latency: " + latency + "ms");
+                System.out.print("\r");
+                System.out.print("Latency: " + latency + "ms");
             } else {
                 System.out.println("Server is not reachable");
             }
@@ -35,6 +36,7 @@ public class Config {
 
         if (numberOfRequest != 0) {
             double averageLatency = (double) totalLatency / numberOfRequest;
+            System.out.println();
             System.out.println("server - " + serverAddress);
             System.out.println("MIN: " + minLatency + " AVG: " + averageLatency + " MAX: " + maxLatency);
         }
