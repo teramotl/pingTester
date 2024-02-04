@@ -3,8 +3,6 @@ import java.util.Scanner;
 
 //TODO implement multithreadconnection
 
-//TODO make exe version or implement to website (on progress)
-
 
 public class PingTester {
     public static Config pingConfiguration;
@@ -37,27 +35,11 @@ public class PingTester {
 
         } while (choice != 0);
     }
-
-    public static void connectToAllServers() {
-        MultithreadingConnection connectToJapan = new MultithreadingConnection("www.evastore.com");
-        MultithreadingConnection connectToRussia = new MultithreadingConnection("46.17.46.213");
-        Thread thread1 = new Thread(connectToJapan);
-        Thread thread2 = new Thread(connectToRussia);
-
-        thread1.start();
-        thread2.start();
-
-    }
-
     public static void connectToCustomWeb() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter domain or IP address:");
         String customServerAddress = sc.next();
         connectTo(customServerAddress);
-    }
-
-    public static void connectToJapan() {
-        connectTo("www.evastore.jp");
     }
 
     public static void connectTo(String serverAddress) {

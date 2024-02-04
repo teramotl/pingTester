@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="pingTester:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/pingTester_jar</output-path>
+    <root id="archive" name="pingTester.jar">
+      <element id="module-output" name="pingTester" />
+    </root>
+  </artifact>
+</component>
