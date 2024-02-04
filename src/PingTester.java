@@ -1,9 +1,9 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-//TODO improve latency println (on progress)
+//TODO implement multithreadconnection
 
-//TODO implement multithreadconnection (on progress)
+//TODO make exe version or implement to website (on progress)
 
 
 public class PingTester {
@@ -22,31 +22,31 @@ public class PingTester {
 
                 switch (choice) {
                     case 1:
-                        MultithreadingConnection connectToJapan = new MultithreadingConnection("www.evastore.com");
-                        MultithreadingConnection connectToRussia = new MultithreadingConnection("46.17.46.213");
-                        Thread thread1 = new Thread(connectToJapan);
-                        Thread thread2 = new Thread(connectToRussia);
-
-                        thread1.start();
-                        thread2.start();
-
-                        break;
-                    case 2:
                         connectToCustomWeb();
                         break;
-                    case 3:
+                    case 2:
                         CountryIPs();
                         break;
-                    case 4:
+                    case 3:
                         settingsMenu();
                         break;
                 }
-
             } catch (InputMismatchException e) {
                 System.out.println("Please enter a number to select");
             }
 
         } while (choice != 0);
+    }
+
+    public static void connectToAllServers() {
+        MultithreadingConnection connectToJapan = new MultithreadingConnection("www.evastore.com");
+        MultithreadingConnection connectToRussia = new MultithreadingConnection("46.17.46.213");
+        Thread thread1 = new Thread(connectToJapan);
+        Thread thread2 = new Thread(connectToRussia);
+
+        thread1.start();
+        thread2.start();
+
     }
 
     public static void connectToCustomWeb() {
@@ -76,10 +76,9 @@ public class PingTester {
 
     public static void displayMenu() {
         System.out.println("=========== Menu ===========");
-        System.out.println("1. Test all servers");
-        System.out.println("2. Test custom website/ip");
-        System.out.println("3. Show country and website/IPs");
-        System.out.println("4. Settings");
+        System.out.println("1. Test custom website/ip");
+        System.out.println("2. Show country and website/IPs");
+        System.out.println("3. Settings");
         System.out.println("0. EXIT");
         System.out.println("============================");
     }
