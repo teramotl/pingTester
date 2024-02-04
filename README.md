@@ -15,7 +15,7 @@ I live in a city where internet issues with the provider are common. Occasionall
 
 5. You will see this mini menu. you can choose first option and it will connect to jp server and display your latency. OR you can choose custom method where you can enter any website of your choice.
    
-![Menu Screenshot](https://github.com/teramotl/pingTester/blob/main/menupic.jpg?raw=true)
+![Menu Screenshot](https://github.com/teramotl/pingTester/blob/main/menupicFinal.jpg?raw=true)
 
 
 ## Is That It?
